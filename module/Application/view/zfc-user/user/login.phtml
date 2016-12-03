@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-    <title>Online Exam by Bright Life Foundation</title>
+    <title>Online Exam</title>
     <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-icon-72x72.png">
@@ -48,7 +48,7 @@
                 <h1><i class="fa fa-sign-in"></i> <strong>Login</strong></h1>
             </div>
             <div class="block push-bit">
- 
+
 <?php
 $form = $this->loginForm;
 $form->prepare();
@@ -57,10 +57,10 @@ $form->setAttribute('method', 'post');
 $form->setAttribute('class', 'form-horizontal form-bordered form-control-borderless');
 $form->setAttribute('id', 'form-login')
 ?>
- 
+
 <?php echo $this->form()->openTag($form) ?>
 <?php foreach ($form as $element) : ?>
- 
+
     <div class="form-group <?php if ($this->formElementErrors($element)) echo "has-error" ?>">
         <?php
             if ('submit' != $element->getAttribute('type')) { ?>
@@ -89,9 +89,9 @@ endforeach; ?>
          | -->
         <a href="/reset-password">Forgot Password?</a>
     </div>
-</div> 
+</div>
 <?php echo $this->form()->closeTag() ?>
- 
+
  </div>
 </div>
 </body>

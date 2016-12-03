@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Online Exam by Bright Life Foundation</title>
+        <title>Online Exam</title>
         <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-icon-72x72.png">
@@ -64,20 +64,20 @@ $form->setAttribute('class', 'form-horizontal form-bordered form-control-borderl
 $form->setAttribute('id', 'form-signup');
 echo $this->form()->openTag($form);
 ?>
- 
+
     <div class="form-group ">
-        <input name="display_name" type="text" class="form-control" placeholder="Full&#x20;Name" value="" required>    
+        <input name="display_name" type="text" class="form-control" placeholder="Full&#x20;Name" value="" required>
     </div>
     <div class="form-group ">
-        <input name="phonenum" type="text" class="form-control" placeholder="Phone&#x20;Number" value="" maxlength="10" required>    
+        <input name="phonenum" type="text" class="form-control" placeholder="Phone&#x20;Number" value="" maxlength="10" required>
     </div>
     <div class="form-group  text-center">
         <small class="text-muted">*Please don't use Space in Username. Maximum 10 characters allowed.</small><br>
         <input id="username" name="username" type="text" class="form-control" placeholder="Username" value="" maxlength="10" pattern=".{6,}" required title="Minimum 6 characters required">
-        
+
     </div>
     <div class="form-group ">
-        <input name="refcode" type="text" class="form-control" placeholder="Referrer&#x20;Code (If referred)" value="">    
+        <input name="refcode" type="text" class="form-control" placeholder="Referrer&#x20;Code (If referred)" value="">
     </div>
     <input name="password" type="hidden" class="form-control" placeholder="Password" value="" required>
     <input name="passwordVerify" type="hidden" class="form-control" placeholder="Password&#x20;Verify" value="" required>
@@ -86,7 +86,7 @@ echo $this->form()->openTag($form);
         <button type="submit" name="submit" class="btn&#x20;btn-sm&#x20;btn-primary&#x20;btn-block" value="">Register</button>
     </div>
     <?php foreach ($form as $element) :
-        if ($this->formElementErrors($element)) : 
+        if ($this->formElementErrors($element)) :
             echo $this->formElementErrors()
                 ->setMessageOpenFormat('<p class="text-danger text-center">')
                 ->setMessageSeparatorString('</p><p class="text-danger text-center">')
@@ -103,7 +103,7 @@ echo $this->form()->openTag($form);
         <small><u>Do you have an account?</u></small> <a href="/user/login" id="link-register" class="btn btn-success btn-xs">Login</a>
     </div>
     </div>
-    
+
 <?php
     if ($this->redirect): ?>
         <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />

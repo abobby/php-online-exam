@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <?php echo $this->headTitle('e-Scholarship by blfngoIndia')->setAutoEscape(false) ?>
+        <?php echo $this->headTitle('Online Exam')->setAutoEscape(false) ?>
         <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-icon-72x72.png">
@@ -52,7 +52,7 @@
         ; ?>
     </head>
     <body>
-    <?php 
+    <?php
         $roletype = $this->zfcUserIdentity()->getRoles();
         $role = $roletype[0]->getroleId();
     ?>
@@ -65,7 +65,7 @@
             } elseif($role == 'manager') {
                 echo $this->render('layout/side-menu-manage');
             } else {
-                
+
             }
             ?>
             <div id="main-container">
@@ -76,7 +76,6 @@
             } elseif($role == 'manager') {
                 echo $this->render('layout/top-menu-manage');
             } else {
-                
+
             }
             ?>
-
