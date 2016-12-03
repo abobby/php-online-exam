@@ -1,5 +1,5 @@
 # :question: Online Examination Portal
-PHP and MySQL based Online Examination Portal with User and Admin login. Buit on Zend 2 Framework and Doctrine ORM
+*PHP* and *MySQL* based **Online Examination Portal** with User and Admin login. Buit on *Zend 2 Framework* and *Doctrine ORM*
 ###Features
 
 ##### :family: User Features
