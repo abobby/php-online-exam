@@ -1,0 +1,40 @@
+<br>
+<?php if(!empty($appmsg)) { ?>
+<div class="alert alert-warning"><?= $appmsg ?></div>  
+<?php } ?>
+
+<?php 
+if($dispscore == 1){ //echo "Your Score is : $exmscore / $totexmqstn"; ?>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                Your Exam Score is as below
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="text-center"><h4>Marks Obtained</h4></th>
+                        <th class="text-center"><h4>Questions Attempted</h4></th>
+                        <th class="text-center"><h4>Total Question</h4></th>
+                    </tr>
+                    <tr>
+                        <td class="text-center text-success"><h1><?= $exmscore * 2; ?> / <?= $totexmqstn * 2; ?></h1>
+                            <small class="text-muted"> *Each Question carries 2 Marks</small>
+                        </td>
+                        <td class="text-center text-warning"><h1><?php echo $totexmqstn - $exmattempt; ?></h1></td>
+                        <td class="text-center text-muted"><h1><?= $totexmqstn; ?></h1></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<?php } else {
+?>
+
+<div class="text-center">
+    <h2>Thanks for submitting your Exam. Our team will get back to you shortly with your results.</h2>
+</div>
+
+<?php } ?>

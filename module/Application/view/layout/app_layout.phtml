@@ -1,0 +1,10 @@
+<?php if ($this->zfcUserIdentity()) { ?>
+<?= $this->render('layout/app_header.phtml') ?>
+<div id="page-content">
+    <?php echo $this->content; ?>
+
+<?php } else { ?>
+<?php echo $this->content; ?>
+<?php } ?>
+</div>
+<?= $this->render('layout/app_footer.phtml') ?>

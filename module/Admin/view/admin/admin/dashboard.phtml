@@ -1,0 +1,77 @@
+<div class="content-header">
+    <div class="header-section">
+        <h1>
+            <?= $pageTitle ?><br>
+        </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="block">
+                    <div class="block-title text-center">
+                        <h2>Total Students</h2>
+                    </div>
+                    <div class="block-body text-center">
+                        <h3><?= $totstudent; ?></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="block">
+                    <div class="block-title text-center">
+                        <h2>Total Paid</h2>
+                    </div>
+                    <div class="block-body text-center">
+                        <h3><?= $totpaid; ?></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="block">
+                    <div class="block-title text-center">
+                        <h2>Total Due</h2>
+                    </div>
+                    <div class="block-body text-center">
+                        <h3><?= $totdue; ?></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="block">
+                    <div class="block-title text-center">
+                        <h2>Registered Today</h2>
+                    </div>
+                    <div class="block-body text-center">
+                        <h3><?= $regtoday; ?></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="block">
+                    <div class="block-title text-center">
+                        <h2>Registration Convertion Graph</h2>
+                    </div>
+                    <div class="block-body text-center">
+                        <div id="convratio"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+Morris.Donut({
+  element: 'convratio',
+  colors : ["#1DE9B6", "#D50000"],
+  data: [
+    {label: "Total Paid", value: <?= $totpaid; ?>},
+    {label: "Total Due", value: <?= $totdue; ?>},
+  ]
+});
+
+</script>

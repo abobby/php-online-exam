@@ -1,0 +1,125 @@
+<div class="content-header">
+    <div class="header-section">
+        <h1>
+            <?= $pageTitle ?><br>
+        </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="block">
+            <div class="block-title">
+                <h2><i class="fa fa-file-o"></i> <strong>Personal</strong> Information</h2>
+            </div>
+
+            <div class="block-section text-center">
+                <!--<a href="javascript:void(0)">
+                    <img src="/img/placeholders/avatars/avatar4@2x.jpg" alt="" class="img-circle">
+                </a-->
+                <h3>
+                    <strong><?php if($studentdetails->firstName != ''){ echo $studentdetails->firstName; } ?></strong><br><small></small>
+                </h3>
+            </div>
+            <table class="table table-borderless table-striped table-vcenter">
+                <tbody>
+                    <tr>
+                        <td class="text-right" style="width: 50%;"><strong>Full Name</strong></td>
+                        <td><?php if($studentdetails->firstName != ''){ echo $studentdetails->firstName; } ?> <?php if($studentdetails->middleName != '') { echo $studentdetails->middleName; }?> <?php if($studentdetails->lastName != '') { echo $studentdetails->lastName; }?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Birth Date</strong></td>
+                        <td><?php if($studentdetails->birthdate != '') { echo $studentdetails->birthdate->format('d-M-Y'); }?></td>
+                    </tr>
+                                                                <tr>
+                    <td class="text-right"><strong>Phone</strong></td>
+                        <td><?php if($user->getPhonenum() != '') { echo $user->getPhonenum(); } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Email</strong></td>
+                        <td><?php if($user->getEmail() != '') { echo $user->getEmail(); } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Father's Name</strong></td>
+                        <td><?php if($studentdetails->fathername != '') { echo $studentdetails->fathername; } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Mother's Name</strong></td>
+                        <td><?php if($studentdetails->mothername != '') { echo $studentdetails->mothername; } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Religion</strong></td>
+                        <td><?php if($studentdetails->religion != '') { echo ucfirst($studentdetails->religion); } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Caste</strong></td>
+                        <td><?php if($studentdetails->caste != '') { echo ucfirst($studentdetails->caste); } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Aadhaar Card</strong></td>
+                        <td><?php if($studentdetails->aadhaarnum != '') { echo $studentdetails->aadhaarnum; } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Address</strong></td>
+                        <td><?php if($studentdetails->address != '') { echo $studentdetails->address; } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>City</strong></td>
+                        <td><?php if($studentdetails->city != ''){echo $studentdetails->city;} ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>State</strong></td>
+                        <td><?php if($studentdetails->state != '') { echo $studentdetails->state; } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Pin Code</strong></td>
+                        <td><?php if($studentdetails->pin != '') { echo $studentdetails->pin; } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Country</strong></td>
+                        <td><?php if($studentdetails->country != '') {echo $studentdetails->country;} ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Status</strong></td>
+                        <td><span class="label label-success"><i class="fa fa-check"></i> Active</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="block">
+            <div class="block-title">
+                <h2><i class="fa fa-graduation-cap "></i> <strong>Educational</strong> Details</h2>
+            </div>
+
+            <table class="table table-borderless table-striped table-vcenter">
+                <tbody>
+                    <tr>
+                        <td class="text-right" style="width: 50%;"><strong>Class</strong></td>
+                        <td><?php if($studentdetails->classGrade != ''){ echo $studentclass->getName(); } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right" style="width: 50%;"><strong>Medium</strong></td>
+                        <td><?php if($studentdetails->scmedium != ''){ echo ucfirst($studentdetails->scmedium); } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>School/College</strong></td>
+                        <td><?php if($studentdetails->schoolColg != ''){ echo $studentdetails->schoolColg; } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>School/College Address</strong></td>
+                        <td><?php if($studentdetails->schcolAddr != ''){ echo $studentdetails->schcolAddr; } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Passing Year</strong></td>
+                        <td><?php if($studentdetails->passyear != ''){ echo $studentdetails->passyear; } ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><strong>Board / University</strong></td>
+                        <td><?php if($studentdetails->boardUniv != ''){ echo $studentdetails->boardUniv; } ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

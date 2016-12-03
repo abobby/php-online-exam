@@ -1,0 +1,109 @@
+<div class="content-header">
+    <div class="header-section">
+    	<div class="pull-right">My Referral Code : <span class="bg-primary"><strong>&nbsp;&nbsp;<?= $studinfo->strefcode; ?>&nbsp;&nbsp;</strong></span></div>
+        <h1>
+            <strong><?= $pageTitle ?></strong> 
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="block">
+            <div class="block-title">
+            	<div class="pull-right"><a href="/streferral/referral-email-form" class="btn btn-xs btn-info">Referral By Email</a>
+            	&nbsp;&nbsp;&nbsp;
+            	<a href="/streferral/referral-sms-form" class="pull-right btn btn-xs btn-primary">Refer by SMS</a></div>
+                <h2><i class="fa fa-file-o"></i> Refer your friends and <strong><span class="text-success">Win Amazing Gifts</span></strong><h2>
+            </div>
+            <div class="block-body">
+            	<div class="row">
+				    <div class="col-sm-6 col-lg-3">
+				        <!-- Widget -->
+				        <a href="javascript:void(0)" class="widget widget-hover-effect1">
+				            <div class="widget-simple">
+				                <div class="widget-icon pull-left themed-background-dark animation-fadeIn">
+				                    <i class="fa fa-flag-checkered"></i>
+				                </div>
+				                <h3 class="widget-content text-center animation-pullDown">
+				                    <strong>Total Referred</strong><br>
+				                    <small><?php echo "<h3>".(count($refinfo) > 0 ? count($refinfo) : 0)."</h3>"; ?></small>
+				                </h3>
+				            </div>
+				        </a>
+				        <!-- END Widget -->
+				    </div>
+				    <div class="col-sm-6 col-lg-3">
+				        <!-- Widget -->
+				        <a href="javascript:void(0)" class="widget widget-hover-effect1">
+				            <div class="widget-simple">
+				                <div class="widget-icon pull-left themed-background-dark animation-fadeIn">
+				                    <i class="fa fa-trophy"></i>
+				                </div>
+				                <h3 class="widget-content text-center animation-pullDown">
+				                    <strong>Registered</strong><br>
+				                    <small><?php echo "<h3>".(count($totrefsuccess > 0) ? count($totrefsuccess) : 0)."</h3>"; ?></small>
+				                </h3>
+				            </div>
+				        </a>
+				        <!-- END Widget -->
+				    </div>
+				    <div class="col-sm-6 col-lg-3">
+				        <!-- Widget -->
+				        <a href="javascript:void(0)" class="widget widget-hover-effect1">
+				            <div class="widget-simple">
+				                <div class="widget-icon pull-left themed-background-dark animation-fadeIn">
+				                    <i class="fa fa-pencil-square-o"></i>
+				                </div>
+				                <h3 class="widget-content text-center animation-pullDown">
+				                    <strong>SMS Referrals</strong>
+				                    <small><?php echo "<h3>".(count($totrefsms > 0) ? count($totrefsms) : 0)."</h3>"; ?></small>
+				                </h3>
+				            </div>
+				        </a>
+				        <!-- END Widget -->
+				    </div>
+				    <div class="col-sm-6 col-lg-3">
+				        <!-- Widget -->
+				        <a href="javascript:void(0)" class="widget widget-hover-effect1">
+				            <div class="widget-simple">
+				                <div class="widget-icon pull-left themed-background-dark animation-fadeIn">
+				                    <i class="fa fa-trophy"></i>
+				                </div>
+				                <h3 class="widget-content text-center animation-pullDown">
+				                    <strong>Email Referrals</strong>
+				                    <small><?php echo "<h3>".(count($totrefemail > 0) ? count($totrefemail) : 0)."</h3>"; ?></small>
+				                </h3>
+				            </div>
+				        </a>
+				        <!-- END Widget -->
+				    </div>
+				</div>
+            	<table class="table table-bordered">
+            		<tr>
+            			<th>Sl.</th>
+            			<th>Name</th>
+            			<th>Email/Phone</th>
+            			<th>Mode</th>
+            			<th>Status</th>
+            		</tr>
+            		<?php if(!empty($refinfo)) { ?>
+            		<?php foreach ($refinfo as $key => $value) { ?>
+            			<tr>
+	            			<td><?= $key+1; ?></td>
+	            			<td><?= $value->refname; ?></td>
+	            			<td><?= $value->refphone; ?> <?= $value->refemail; ?></td>
+	            			<td><?= $value->refmode; ?></td>
+	            			<td><?= $value->refstatus; ?></td>
+            			</tr>
+            		<?php } 
+            		} else { ?>
+            		<tr>
+            			<td colspan="5" class="text-center"><h4>You have not started refering yet. Start refering your friends to <span class ="text-success"><strong>Win Amazing Gifts!</strong></span></h4></td>
+            		</tr>
+            		<?php } ?>
+            	</table>
+            </div>
+        </div>
+    </div>
+</div>

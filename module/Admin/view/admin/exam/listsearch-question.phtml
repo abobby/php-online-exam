@@ -1,0 +1,87 @@
+<div class="content-header">
+    <div class="header-section">
+        <h1>
+            <?= $pageTitle ?><br>
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+        <form method="post" name="searchquest">
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <select name="allclass" class="form-control">
+                    <option>-- Select Class --</option>
+                    <?php foreach($allclass as $acls){
+                        echo "<option value='".$acls->getId()."'>".$acls->getName()."</option>";
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="col-md-4 form-group">
+                <select name="allsubject" class="form-control">
+                    <option>-- Select Class --</option>
+                    <?php foreach($allsubj as $asub){
+                        echo "<option value='".$asub->getEid()."'>".$asub->getName()."</option>";
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="col-md-4 form-group">
+                <select name="allmode" class="form-control">
+                    <option>-- Select Medium --</option>
+                    <option value="1">English</option>
+                    <option value="2">Hindi</option>
+                </select>
+            </div>
+            <div class="col-md-4 col-md-offset-4 form-group">
+                <input type="submit" name="searchqstn" class="form-control btn btn-info" value="Show" />
+            </div>
+        </div>
+        </form>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped" id="showqstns">
+                    <thead>
+                        <tr>
+                            <th>Sl No</th>
+                            <th>Id</th>
+                            <th>Question</th>
+                            <th>Options</th>
+                            <th>Answer</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if(!empty($gotquestions)) {  $ii = 0;?>
+                        <?php foreach($gotquestions as $qstn){ $ii++ ?>
+                        <tr>
+                            <td><?php echo $ii; ?></td>
+                            <td><?= $qstn->getId() ?></td>
+                            <td><?= $qstn->getExquest() ?></td>
+                            <td>
+                                <?= $qstn->getExchoice1() ?><br>
+                                <?= $qstn->getExchoice2() ?><br>
+                                <?= $qstn->getExchoice3() ?><br>
+                                <?= $qstn->getExchoice4() ?><br>
+                            </td>
+                            <td>
+                                <?= $qstn->getExcrchoice() ?>
+                            </td>
+                            <td><a href="<?php echo $this->basePath(); ?>/admin/exam/edit-question?qstid=<?= $qstn->getId() ?>">Edit</a></td>
+                        </tr>
+                        <?php } 
+                        } else { ?>
+                        <tr>
+                            <td colspan="6" class="text-center"> <h4>Please Select Options Above to Display Result</h4></td>
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,179 @@
+<div class="content-header">
+    <div class="header-section">
+        <h1>
+            <?= $pageTitle ?>
+        </h1>
+    </div>
+</div>
+<form action="/student/student/save-profile" method="post" name="studprofsave" class="form-horizontal form-bordered" style="padding:5px;">
+    <div class="block">
+        <!-- General Data Title -->
+        <div class="block-title">
+            <div class='pull-right'>Fields marked <span class="text-danger">*</span> are mandatory <button id="saveprofile" class="btn btn-success btn-xs">Save Changes</button></div>
+            <h2><i class="fa fa-pencil"></i> <strong>Personal Information</strong></h2>
+        </div>
+        <div class="block-body">
+            <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputfname">Gender <span class="text-danger">*</span></label>
+                      <input type="radio" name="inputgen" value="male" <?php if($studentdetails->gender == 'male'){ echo "checked"; } ?> required> Male
+                      <input type="radio" name="inputgen" value="female" <?php if($studentdetails->gender == 'female'){ echo "checked"; } ?>> Female
+                    </div>
+                    <div class="form-group">
+                      <label for="inputfname">First Name <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" name="inputfname" value="<?php if($studentdetails->firstName != ''){ echo $studentdetails->firstName; } ?>" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputlname">Middle Name</label>
+                      <input type="text" class="form-control" name="inputmname" value="<?php if($studentdetails->middleName != '') { echo $studentdetails->middleName; }?>" >
+                    </div>
+                    <div class="form-group">
+                      <label for="inputlname">Last Name <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" name="inputlname" value="<?php if($studentdetails->lastName != '') { echo $studentdetails->lastName; }?>" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputlname">Date of Birth (YYYY-MM-DD) <span class="text-danger">*</span></label>
+                      <input data-format="YYYY-MM-DD" class="form-control" name="inputdob" type="text" value="<?php if($studentdetails->birthdate != '') { echo $studentdetails->birthdate->format('Y-m-d'); }?>" placeholder="YYYY-MM-DD"></input>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="inputphone">Phone <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" name="inputphone" value="<?php if($user->getPhonenum() != '') { echo $user->getPhonenum(); } ?>" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputemail">Email</label>
+                      <input type="email" class="form-control" name="inputemail" value="<?php if($user->getEmail() != '') { echo $user->getEmail(); } ?>" >
+                    </div>
+                    <div class="form-group">
+                      <label for="inputmoname">Mother's Name <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" name="inputmoname" value="<?php if($studentdetails->mothername != '') { echo $studentdetails->mothername; } ?>" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputfaname">Father's Name <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" name="inputfaname" value="<?php if($studentdetails->fathername != '') { echo $studentdetails->fathername; } ?>" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputreligion">Religion</label>
+                      <select name="inputreligion" class="form-control">
+                          <option value=""> -- Select Religion -- </option>
+                          <option value="hindu" <?php if($studentdetails->religion == 'hindu') { echo "selected"; } ?>>Hindu</option>
+                          <option value="muslim" <?php if($studentdetails->religion == 'muslim') { echo "selected"; } ?>>Muslim</option>
+                          <option value="christian" <?php if($studentdetails->religion == 'christian') { echo "selected"; } ?>>Christian</option>
+                          <option value="sikh" <?php if($studentdetails->religion == 'sikh') { echo "selected"; } ?>>Sikh</option>
+                          <option value="parsi" <?php if($studentdetails->religion == 'parsi') { echo "selected"; } ?>>Parsi</option>
+                          <option value="jain" <?php if($studentdetails->religion == 'jain') { echo "selected"; } ?>>Jain</option>
+                          <option value="buddhist" <?php if($studentdetails->religion == 'buddhist') { echo "selected"; } ?>>Buddhist</option>
+                          <option value="other" <?php if($studentdetails->religion == 'other') { echo "selected"; } ?>>Other</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputcaste">Caste/Community Category</label>
+                      <select name="inputcaste" class="form-control">
+                          <option value=""> -- Select Caste/Community -- </option>
+                          <option value="general" <?php if($studentdetails->caste == 'general') { echo "selected"; } ?>>General</option>
+                          <option value="obc" <?php if($studentdetails->caste == 'obc') { echo "selected"; } ?>>OBC</option>
+                          <option value="sc" <?php if($studentdetails->caste == 'sc') { echo "selected"; } ?>>SC</option>
+                          <option value="st" <?php if($studentdetails->caste == 'st') { echo "selected"; } ?>>ST</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputaadhaarnum">Aadhaar Number</label>
+                      <input class="form-control" name="inputaadhaarnum" value="<?php if($studentdetails->aadhaarnum != '') { echo $studentdetails->aadhaarnum; } ?> " />
+                    </div>
+                    <div class="form-group">
+                      <label for="inputaddress">Address</label>
+                      <textarea type="text" class="form-control" name="inputaddress"  rows="5"><?php if($studentdetails->address != '') { echo $studentdetails->address; } ?></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputcity">City <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" name="inputcity" value="<?php if($studentdetails->city != ''){echo $studentdetails->city;} ?>" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputstate">State <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" name="inputstate" value="<?php if($studentdetails->state != '') { echo $studentdetails->state; } ?>" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputstate">Pin Code <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" name="inputpin" value="<?php if($studentdetails->pin != '') { echo $studentdetails->pin; } ?>" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputcountry">Country</label>
+                      <input type="text" class="form-control" name="inputcountry" value="<?php if($studentdetails->country != '') {echo $studentdetails->country;} else { echo "Indis";} ?>" >
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="block">
+        <div class="block-title">
+            <h2><i class="fa fa-pencil"></i> <strong>Educational Information</strong></h2>
+        </div>
+        <div class="block-body">
+            <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="inputsclass">Class <span class="text-danger">*</span></label>
+                        <select name="inputsclass" class="form-control">
+                            <option>-- Select Class --</option>
+                        <?php foreach($totcls as $val){ ?>
+                            <option value="<?php echo $val->getId(); ?>" <?php if($studentdetails->classGrade == $val->getId()){echo "selected";} ?>><?php echo $val->getName(); ?></option>
+                        
+                      <!--<input type="text" class="form-control" name="inputsclass" value="<?php //if($studentdetails->classGrade != ''){ echo $studentdetails->classGrade; } ?>" required> -->
+                        <?php } ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputsyear">Passing Year <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" name="inputsyear" value="<?php if($studentdetails->passyear != ''){ echo $studentdetails->passyear; } ?>" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="scmedium">Medium <span class="text-danger">*</span></label><br>
+                      <input type="radio" name="scmedium" value="hindi" <?php if($studentdetails->scmedium == 'hindi'){ echo "checked" ; } ?> required> हिन्दी 
+                      &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="scmedium" value="english" <?php if($studentdetails->scmedium == 'english'){ echo "checked" ; } ?>> English
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputboard">Board / University</label>
+                      <input type="text" class="form-control" name="inputboard" value="<?php if($studentdetails->boardUniv != ''){ echo $studentdetails->boardUniv; } ?>" >
+                    </div>
+                    <div class="form-group">
+                      <label for="inputschool">School/college/Institute Name <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" name="inputschool" value="<?php if($studentdetails->schoolColg != ''){ echo $studentdetails->schoolColg; } ?>" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputschaddr">School/college/Institute Address</label>
+                      <textarea class="form-control" name="inputschaddr" rows="5"><?php if($studentdetails->schcolAddr != ''){ echo $studentdetails->schcolAddr; } ?></textarea>
+                    </div>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <input type="checkbox" name="termsofservice" required value=""> <a href="http://www.blfngoindia.org/terms.html" target="_blank">Accept term & conditions</a><br><br>
+            </div>
+        </div>
+        <div class="panel-footer text-center">
+            <button id="saveprofile" class="btn btn-success">Save Changes</button>
+        </div>
+    </div>
+</form>
+
+<?php echo $this->headScript()
+    ->prependFile($this->basePath('js/bootstrap-datetimepicker.min.js'))
+; ?>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker4').datetimepicker({
+            pickTime: false
+          });
+    });
+</script>

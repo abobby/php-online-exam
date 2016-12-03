@@ -1,0 +1,47 @@
+<div class="block">
+	<div class="block-title">
+        <h3> <?= $pageTitle ?></h3>
+	</div>
+	<div class="block-body">
+<table class="table table-bordered table-striped" id="refall">
+	<thead>
+		<th>Sl</th>
+        <th>UID</th>
+		<th>Refer Name</th>
+		<th>Refer Phone / Email</th>
+		<th>Total Registered</th>
+	</thead>
+	<tbody>
+<?php 
+foreach ($refdetails as $key=>$value) {
+	$sl = $key+1;
+	echo "<tr>";
+	echo "<td>". $sl . "</td>";
+    echo "<td>". $value['uid'] . "</td>";
+	echo "<td>" . $value['name'] ."</td>";
+	echo "<td>".$value['phone']."</td>";
+	echo "<td>".$value['totrefs']."</td>";
+	echo "</tr>";
+}
+?>
+	</tbody>
+</table>
+</div>
+</div>
+
+<script type="text/javascript">
+Morris.Donut({
+  element: 'refratio',
+  colors : ["#DCEDC8", "#33691E"],
+  data: [
+    {label: "Total Referred", value: <?= count($allrefs); ?>},
+    {label: "Total Registered", value: <?= $regRefs; ?>},
+  ]
+});
+
+$(document).ready(function(){
+    $('#refall').DataTable({
+        "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
+    });
+});
+</script>

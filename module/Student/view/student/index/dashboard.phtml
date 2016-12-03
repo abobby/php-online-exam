@@ -1,0 +1,318 @@
+<div class="content-header content-header-media">
+    <div class="header-section">
+        <div class="row">
+            <div class="col-md-4 col-lg-6 hidden-xs hidden-sm">
+                <h1>Welcome <strong><?= $this->zfcUserIdentity()->getUsername() ?></strong><br><small>Prove Your Talent Here</small></h1>
+            </div>
+        </div>
+    </div>
+    <img src="/img/placeholders/headers/login_header.jpg" alt="header image" class="animation-pulseSlow">
+</div>
+
+<hr>
+
+<?php if($studdetails->paystatus == 1) { ?>
+<!-- Mini Top Stats Row -->
+<div class="row">
+    <div class="col-sm-6 col-lg-3">
+        <!-- Widget -->
+        <a href="javascript:void(0)" class="widget widget-hover-effect1">
+            <div class="widget-simple">
+                <div class="widget-icon pull-left themed-background-dark animation-fadeIn">
+                    <i class="fa fa-flag-checkered"></i>
+                </div>
+                <h3 class="widget-content text-right animation-pullDown">
+                    <strong>15th Jan 2016</strong><br>
+                    <small>Registration Start</small>
+                </h3>
+            </div>
+        </a>
+        <!-- END Widget -->
+    </div>
+    <div class="col-sm-6 col-lg-3">
+        <!-- Widget -->
+        <a href="javascript:void(0)" class="widget widget-hover-effect1">
+            <div class="widget-simple">
+                <div class="widget-icon pull-left themed-background-dark animation-fadeIn">
+                    <i class="fa fa-power-off"></i>
+                </div>
+                <h3 class="widget-content text-right animation-pullDown">
+                    <strong>31st March 2016</strong><br>
+                    <small>Registration End</small>
+                </h3>
+            </div>
+        </a>
+        <!-- END Widget -->
+    </div>
+    <div class="col-sm-6 col-lg-3">
+        <!-- Widget -->
+        <a href="javascript:void(0)" class="widget widget-hover-effect1">
+            <div class="widget-simple">
+                <div class="widget-icon pull-left themed-background-dark animation-fadeIn">
+                    <i class="fa fa-pencil-square-o"></i>
+                </div>
+                <h3 class="widget-content text-right animation-pullDown">
+                    <strong>16th - 17th April 2016</strong>
+                    <small>Exam Date</small>
+                </h3>
+            </div>
+        </a>
+        <!-- END Widget -->
+    </div>
+    <div class="col-sm-6 col-lg-3">
+        <!-- Widget -->
+        <a href="javascript:void(0)" class="widget widget-hover-effect1">
+            <div class="widget-simple">
+                <div class="widget-icon pull-left themed-background-dark animation-fadeIn">
+                    <i class="fa fa-trophy"></i>
+                </div>
+                <h3 class="widget-content text-right animation-pullDown">
+                    <strong>24th April 2016</strong>
+                    <small>Result Date</small>
+                </h3>
+            </div>
+        </a>
+        <!-- END Widget -->
+    </div>
+</div>
+<!-- END Mini Top Stats Row -->
+
+<!-- Widgets Row -->
+<div class="row">
+    <div class="col-md-12">
+        <!-- Timeline Widget -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="widget">
+                    <div class="widget-extra ">
+                        <h4 class="text-center"><strong>Demo Exam Center</strong></h4>
+                    </div>
+                    <div class="widget-extra-full"><span class="h2 text-warning">
+                            <a href="/stexam/demo-exam?stexid=<?= $demoexamlink ?> "  class="btn btn-success btn-block">Click here for Demo</a>
+                            <!--<a href="#"  class="btn btn-success btn-block">EXPIRED</a>-->
+                            
+                        </span>
+                    </div>
+                    <p class="text-center text-muted">*Demo Exam available till 8th April 2016</p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="widget">
+                    <div class="widget-extra">
+                        <h4 class="widget-content text-center"><strong>Online Exam Center</strong></h4>
+                    </div>
+                    <!--<div class="widget-extra-full"><span class="h2 text-warning"><a href="/stexam/start-exam?stexid=<?= $examlink; ?>"<button type="button" class="btn btn-warning btn-block"><i class="fa fa-refresh  fa-spin"></i> Click here for Exam</button></a></span></div>-->
+                    <div class="widget-extra-full"><span class="h2 text-warning"><button type="button" class="btn btn-warning btn-block">EXPIRED </button></span></div>
+                    <p class="text-center text-muted">*Online Exam available on 16th & 17th April 2016</p>
+                </div>
+            </div>
+        </div>
+        <!-- END Timeline Widget -->
+    </div>
+</div>
+<?php } else { ?>
+    <div class="row">
+        <div class="block">
+            <div class="block-title text-center">
+                <h4>Click the link below to pay Registration Fees.<br>
+                    <span class="text-danger">NOTE :: All links will be Active once Payment is Confirmed.</span></h4>
+            </div>
+            <div class="block-body">
+                <div class="row">
+                <div class="col-md-6 text-center">
+                    <div class="pm-button"><a href="https://www.payumoney.com/paybypayumoney/#/7B6081E9607603E02D5C1FE71FEC1B04" target="_blank"><img src="https://www.payumoney.com//media/images/payby_payumoney/buttons/213.png" /></a></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="alert alert-danger">
+                        <h4><strong><i class="fa fa-comment"></i> It takes about 24 - 48 hours for your
+                            <br>Account Activation once the payment is done.</strong></h4>
+                    </div>
+                </div>
+                </div>
+            
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="z-index:9999999;">
+    <div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h2 class="modal-title" id="myModalLabel" style="text-align:center">Please pay <strong>Rs.100</strong> for eScholarship fee after that demo test will active in 12 hrs... Best of Luck !!</h2>
+    </div>              
+    </div>
+    </div>
+    </div>  
+    <script type="text/javascript">
+            $(function() {
+           $("#myModal").modal();
+        });
+    </script>
+
+<?php } ?>
+    <div class="row">
+        <div class="block">
+            <div class="block-body">
+                <div class="row">
+            <a href="/streferral/referral-dashboard"> <img src="/img/dashboard-refer.jpg" class="img-responsive" title="Refer Now" /> </a>
+        </div>
+        <div class="row">
+        <div class="col-md-12">
+        <h3 class="text-center">Scholarship Prize for All Classes Topper Candidates</h3>
+        <div class="row text-center">
+            <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td>Full Marks</td>
+                <td><strong>1 Laptop</strong> worth Rs. 35,000</td>
+            </tr>
+            <tr>
+                <td>1st Position</td>
+                <td><strong>Rs. 21,000</strong> with Rs.500/- Month for 5 Years</td>
+            </tr>
+            <tr>
+                <td>2nd Position</td>
+                <td><strong>Rs. 11,000</strong> with Rs.300/- Month for 5 Years</td>
+            </tr>
+            <tr>
+                <td>3rd Position</td>
+                <td><strong>Rs. 5,100</strong> with Rs.200/- Month for 5 Years</td>
+            </tr>
+            <tr>
+                <td>4th to 10th Position</td>
+                <td><strong>Rs. 2,100</strong> with Rs.100/- Month for 5 Years</td>
+            </tr>
+            <tr>
+                <td>Above 60%</td>
+                <td>Gift &amp; Scholarship Certificate</td>
+            </tr>
+        </tbody>
+        </table>
+        </div>
+        <!-- next section -->
+
+
+
+        <h3 class="text-center">eScholarship Winners 2015</h3>
+        <div class="row text-center">
+        <ul class="nav nav-tabs nav-justified">
+              <li class="active"><a aria-expanded="true" data-toggle="tab" href="#w8">8<sup>th</sup></a></li>
+              <li class=""><a aria-expanded="false" data-toggle="tab" href="#w9">9<sup>th</sup></a></li>
+              <li class=""><a aria-expanded="false" data-toggle="tab" href="#w10">10<sup>th</sup></a></li>
+              <li class=""><a aria-expanded="false" data-toggle="tab" href="#w11">11<sup>th</sup></a></li>
+              <li class=""><a aria-expanded="false" data-toggle="tab" href="#w12">12<sup>th</sup></a></li>
+            </ul>
+
+            <div class="tab-content">
+              <div id="w8" class="tab-pane fade active in" style="background:#fff;">
+                <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <td>1st Position</td>
+                        <td>Govind Kumar s/o Bharam Parkesh</td>
+                        <td>Korba - C.G.</td>
+                      </tr>
+                      <tr>
+                        <td>2nd Position</td>
+                        <td>Asif Khan s/o Gulsan Khan</td>
+                        <td>Gawaliyar - U.P.</td>
+                      </tr>
+                      <tr>
+                        <td>3rd Position</td>
+                        <td>Lokesh s/o Krishan Lal</td>
+                        <td>Salem - Tamilnadu</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+              <div id="w9" class="tab-pane fade" style="background:#fff;">
+                <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <td>1st Position</td>
+                        <td>Mukesh Meena S/o Suresh Meena</td>
+                        <td>Bhiwadi - Rajasthan</td>
+                      </tr>
+                      <tr>
+                        <td>2nd Position</td>
+                        <td>Varsha Kumari d/o Balvinder Singh</td>
+                        <td>Firozpur - Punjab</td>
+                      </tr>
+                      <tr>
+                        <td>3rd Position</td>
+                        <td>Neha Rani d/o Suraj</td>
+                        <td>Panipat - Haryana</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+              <div id="w10" class="tab-pane fade" style="background:#fff;">
+                <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <td>1st Position</td>
+                        <td>Ramlakan s/o Subhash Kumar</td>
+                        <td>Karur - Tamilnadu</td>
+                      </tr>
+                      <tr>
+                        <td>2nd Position</td>
+                        <td>Vipul Aggarwal s/o Durga Parsad</td>
+                        <td>Alwar - Rajasthan</td>
+                      </tr>
+                      <tr>
+                        <td>3rd Position</td>
+                        <td> Vasim Khan s/o Mohamad Ali Khan</td>
+                        <td>Kolhapur - Maharastra</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              <div id="w11" class="tab-pane fade" style="background:#fff;">
+                <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <td>1st Position</td>
+                        <td>Joseph s/o Veere</td>
+                        <td>Thrissur - Kerela</td>
+                      </tr>
+                      <tr>
+                        <td>2nd Position</td>
+                        <td>Sohehd Khan s/o Rejaul Khan</td>
+                        <td>Indore - M.P.</td>
+                      </tr>
+                      <tr>
+                        <td>3rd Position</td>
+                        <td>Priya Solanki d/o Suresh Solanki</td>
+                        <td>Baster - C.G.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+              <div id="w12" class="tab-pane fade" style="background:#fff;">
+                <table class="table table-bordered">
+                    <tbody>
+                      <tr>
+                        <td>1st Position</td>
+                        <td>Kamini d/o Birender</td>
+                        <td>Jaipur - Rajasthan</td>
+                      </tr>
+                      <tr>
+                        <td>2nd Position</td>
+                        <td>Dinesh s/o Mohinder Singh</td>
+                        <td>Bhiwani - Haryana</td>
+                      </tr>
+                      <tr>
+                        <td>3rd Position</td>
+                        <td>Birjees s/o Sabir</td>
+                        <td>Kaimur - Bihar</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </div>
+            </div>
+        </div>
+
+        <p class="pull-right">for more details please visit <a href="http://e-scholarship.in" target="_blank">www.e-scholarship.in</a></p>
+    </div>
+</div>
+</div>
+</div>

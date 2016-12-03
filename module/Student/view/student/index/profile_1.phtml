@@ -1,0 +1,102 @@
+<h2><?= $pageTitle ?></h2>
+
+<form>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class='pull-right'><a href="/student/student/edit-profile" class="btn btn-success btn-xs">Edit Profile</a></div>
+            <h3 class="panel-title">Personal Details</h3>
+        </div>
+        <fieldset disabled>
+        <div class="panel-body">
+            <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputfname">First Name</label>
+                      <input type="text" class="form-control" id="inputfname" value="<?php if($studentdetails->firstName != ''){ echo $studentdetails->firstName; } ?>" readonly="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputlname">Middle Name</label>
+                      <input type="text" class="form-control" id="inputmname" value="<?php if($studentdetails->middleName != '') { echo $studentdetails->middleName; }?>" readonly="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputlname">Last Name</label>
+                      <input type="text" class="form-control" id="inputlname" value="<?php if($studentdetails->lastName != '') { echo $studentdetails->lastName; }?>" readonly="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputphone">Phone</label>
+                      <input type="text" class="form-control" id="inputphone" value="<?php if($studentdetails->phone != '') { echo $studentdetails->phone; } ?>" readonly="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputemail">Email</label>
+                      <input type="email" class="form-control" id="inputemail" value="<?php if($user->getEmail() != '') { echo $user->getEmail(); } ?>" readonly="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputmoname">Mother's Name</label>
+                      <input type="text" class="form-control" id="inputmoname" value="<?php if($studentdetails->mothername != '') { echo $studentdetails->mothername; } ?>" readonly="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputfaname">Father's Name</label>
+                      <input type="text" class="form-control" id="inputfaname" value="<?php if($studentdetails->fathername != '') { echo $studentdetails->fathername; } ?>" readonly="true">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputaddress">Address</label>
+                      <textarea type="text" class="form-control" id="inputaddress" readonly="true" rows="5"><?php if($studentdetails->address != '') { echo $studentdetails->address; } ?></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputcity">City</label>
+                      <input type="text" class="form-control" id="inputcity" value="<?php if($studentdetails->city != ''){echo $studentdetails->city;} ?>" readonly="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputstate">State</label>
+                      <input type="text" class="form-control" id="inputstate" value="<?php if($studentdetails->state != '') { echo $studentdetails->state; } ?>" readonly="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputstate">Pin Code</label>
+                      <input type="text" class="form-control" id="inputpin" value="<?php if($studentdetails->pin != '') { echo $studentdetails->pin; } ?>" readonly="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputcountry">Country</label>
+                      <input type="text" class="form-control" id="inputcountry" value="<?php if($studentdetails->country != '') {echo $studentdetails->country;} ?>" readonly="true">
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Education Details</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputsclass">Class</label>
+                      <input type="text" class="form-control" id="inputsclass" value="<?php if($studentdetails->classGrade != ''){ echo $studentdetails->classGrade; } ?>" readonly="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputsyear">Year</label>
+                      <input type="text" class="form-control" id="inputsyear" value="<?php if($studentdetails->passyear != ''){ echo $studentdetails->passyear; } ?>" readonly="true">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputschool">School / College</label>
+                      <input type="text" class="form-control" id="inputschool" value="<?php if($studentdetails->schoolColg != ''){ echo $studentdetails->schoolColg; } ?>" readonly="true">
+                    </div>
+                    <div class="form-group">
+                      <label for="inputboard">Board / University</label>
+                      <input type="text" class="form-control" id="inputboard" value="<?php if($studentdetails->boardUniv != ''){ echo $studentdetails->boardUniv; } ?>" readonly="true">
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    </fieldset>
+</form>

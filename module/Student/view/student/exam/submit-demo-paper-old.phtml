@@ -1,0 +1,43 @@
+<h3><?= $pageTitle ?></h3>
+<p>Please find your attempt status and score as below</p>
+<button class="btn btn-xs btn-info printMe">Print Result</button>
+<table class="table table-striped table-bordered" id="studresult">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Question No</th>
+            <th>Option</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $i = 1; $atmp = $score = 0; ?>
+        <?php foreach($resl as $key => $val){ ?>
+        <tr>
+            <td><?= $i ?></td>
+            <td>Question <?= $val['qtno'] ?></td>
+            <td><?= $val['choice'] ?></td>
+            <td><?= $val['resl'] ?></td>
+            <?php 
+                ($val['attempt'] == 'Y') ? $atmp++ : ''; 
+                ($val['resl'] == 'Correct') ? $score++ : ''; 
+            ?>
+        </tr>
+        <?php $i++; } ?>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="2"><strong>Attempt :</strong> <?= $atmp . ' / ' . $totqstn ?></td>
+            <td></td>
+            <td colspan="2"><strong>Score :</strong> <?= $score . ' / ' . $totqstn ?></td>
+        </tr>
+    </tfoot>
+</table>
+<script>
+$(function(){
+    $('.printMe').click(function(){
+        $("#studresult").print();
+   });
+})
+
+</script>

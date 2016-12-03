@@ -1,0 +1,28 @@
+
+body {
+    background: none;
+}
+
+.countdown_exm {
+    display: block;
+    font-size: 20px;
+    padding:10px;
+    font-weight: bold;
+}
+.countdown_exm span {
+    font-size: 15px;
+}
+.days {
+  float: left;
+  margin-right: 4px;
+}
+.hours {
+  display: inline-block;
+}
+.minutes {
+  display: inline-block;
+}
+.seconds {
+  display: inline-block;
+}
+#refratio {height: 200px;}

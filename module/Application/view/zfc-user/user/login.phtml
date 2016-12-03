@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <title>Online Exam by Bright Life Foundation</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/img/faviconms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                    ->prependStylesheet($this->basePath('css/themes.css'))
+                    ->prependStylesheet($this->basePath('css/main.css'))
+                    ->prependStylesheet($this->basePath('css/plugins.css'))
+                    ->prependStylesheet($this->basePath('css/bootstrap.min.css')) ?>
+
+    <?php echo $this->headScript()
+        ->prependFile($this->basePath('js/loginvalidate.js'))
+        ->prependFile($this->basePath('js/additional-methods.js'))
+        ->prependFile($this->basePath('js/jquery.validate.min.js'))
+        ->prependFile($this->basePath('js/bootstrap.min.js'))
+        ->prependFile($this->basePath('js/jquery.min.js'))
+        ->prependFile($this->basePath('js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+        ->prependFile($this->basePath('js/html5shiv.min.js'),   'text/javascript', array('conditional' => 'lt IE 9',))
+    ; ?>
+    <style>
+        .error {
+            color: #ff0;
+        }
+    </style>
+        </head>
+        <body>
+        <img src="/img/bg.jpg" alt="Login Full Background" class="full-bg animation-pulseSlow">
+        <div id="login-container" class="animation-fadeIn">
+            <div class="login-title text-center">
+                <h1><i class="fa fa-sign-in"></i> <strong>Login</strong></h1>
+            </div>
+            <div class="block push-bit">
+ 
+<?php
+$form = $this->loginForm;
+$form->prepare();
+$form->setAttribute('action', $this->url('zfcuser/login'));
+$form->setAttribute('method', 'post');
+$form->setAttribute('class', 'form-horizontal form-bordered form-control-borderless');
+$form->setAttribute('id', 'form-login')
+?>
+ 
+<?php echo $this->form()->openTag($form) ?>
+<?php foreach ($form as $element) : ?>
+ 
+    <div class="form-group <?php if ($this->formElementErrors($element)) echo "has-error" ?>">
+        <?php
+            if ('submit' != $element->getAttribute('type')) { ?>
+                <?php
+                $element->setAttribute('class', 'form-control input-lg')
+                        ->setAttribute('placeholder', $element->getLabel());
+            } else {
+                $element->setAttribute('class', 'btn btn-sm btn-primary btn-block');
+            }
+            echo $this->formElement($element);
+            if ($this->formElementErrors($element)) : ?>
+                <?php
+                echo $this->formElementErrors()
+                    ->setMessageOpenFormat('<p class="help-block">')
+                    ->setMessageSeparatorString('</p><p class="help-block">')
+                    ->setMessageCloseString('</p>')
+                    ->render($element);
+                ?>
+            <?php endif; ?>
+    </div>
+<?php
+endforeach; ?>
+<div class="form-group">
+    <div class="col-xs-12 text-center">
+        <!--<small>Don't have an account?</small> <a href="/user/register" class="btn btn-xs btn-success">Create a new account</a>
+         | -->
+        <a href="/reset-password">Forgot Password?</a>
+    </div>
+</div> 
+<?php echo $this->form()->closeTag() ?>
+ 
+ </div>
+</div>
+</body>
+</html>

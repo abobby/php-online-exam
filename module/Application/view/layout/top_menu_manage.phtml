@@ -1,0 +1,30 @@
+<?php if ($this->zfcUserIdentity()): ?>
+<div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/"><i class="fa fa-graduation-cap"></i> e-Scholarship India</a>
+</div>
+
+<ul class="nav navbar-top-links navbar-right">
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Welcome <?= $this->zfcUserIdentity()->getUsername() ?><i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-user">
+            <li><a href="<?php echo $this->url('zfcuser') ?>"><i class="fa fa-user fa-fw"></i> User Profile</a>
+            </li>
+            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="<?php echo $this->url('zfcuser/logout') ?>">
+            <i class="fa fa-power-off fa-fw"></i>
+        </a>
+    </li>
+</ul>
+<?php endif; ?>

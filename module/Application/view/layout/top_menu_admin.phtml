@@ -1,0 +1,27 @@
+<?php if ($this->zfcUserIdentity()): ?>
+<header class="navbar navbar-default">
+    <ul class="nav navbar-nav-custom">
+        <li>
+            <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');">
+                <i class="fa fa-bars fa-fw"></i>
+            </a>
+        </li>
+
+        <li class="dropdown">
+            <h4>Bright Life Scholarship <?php echo date('Y'); ?> :: Admin Panel</h4>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav-custom pull-right">
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                <?= $this->zfcUserIdentity()->getUsername() ?> <i class="fa fa-angle-down"></i>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo $this->url('zfcuser/logout') ?>">
+                Signout <i class="fa fa-power-off"></i>
+            </a>
+        </li>
+    </ul>
+</header>
+<?php endif; ?>

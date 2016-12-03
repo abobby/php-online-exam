@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Online Exam by Bright Life Foundation</title>
+        <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/img/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/img/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/img/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/img/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/img/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/img/favicon/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/img/faviconms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                    ->prependStylesheet($this->basePath('css/themes.css'))
+                    ->prependStylesheet($this->basePath('css/main.css'))
+                    ->prependStylesheet($this->basePath('css/plugins.css'))
+                    ->prependStylesheet($this->basePath('css/bootstrap.min.css')) ?>
+
+    <?php echo $this->headScript()
+        ->prependFile($this->basePath('js/loginvalidate.js'))
+        ->prependFile($this->basePath('js/additional-methods.js'))
+        ->prependFile($this->basePath('js/jquery.validate.min.js'))
+        ->prependFile($this->basePath('js/bootstrap.min.js'))
+        ->prependFile($this->basePath('js/jquery.min.js'))
+        ->prependFile($this->basePath('js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+        ->prependFile($this->basePath('js/html5shiv.min.js'),   'text/javascript', array('conditional' => 'lt IE 9',))
+    ; ?>
+    <style>
+        .error {
+            color: #ff0;
+        }
+        #login-container {
+            top : 60px;
+        }
+    </style>
+    </head>
+    <body>
+        <img src="/img/bg.jpg" alt="Login Full Background" class="full-bg animation-pulseSlow">
+<div id="login-container" class="animation-fadeIn">
+    <div class="login-title text-center">
+        <h1><i class="fa fa-sign-out"></i> <strong><?php echo $this->translate('Register'); ?></h1></strong></h1>
+    </div>
+<div class="block push-bit">
+<?php
+if (!$this->enableRegistration) {
+    print "Registration is disabled";
+    return;
+}
+$form = $this->registerForm;
+$form->prepare();
+$form->setAttribute('action', $this->url('zfcuser/register'));
+$form->setAttribute('method', 'post');
+$form->setAttribute('class', 'form-horizontal form-bordered form-control-borderless');
+$form->setAttribute('id', 'form-signup');
+echo $this->form()->openTag($form);
+?>
+ 
+    <div class="form-group ">
+        <input name="display_name" type="text" class="form-control" placeholder="Full&#x20;Name" value="" required>    
+    </div>
+    <div class="form-group ">
+        <input name="phonenum" type="text" class="form-control" placeholder="Phone&#x20;Number" value="" maxlength="10" required>    
+    </div>
+    <div class="form-group  text-center">
+        <small class="text-muted">*Please don't use Space in Username. Maximum 10 characters allowed.</small><br>
+        <input id="username" name="username" type="text" class="form-control" placeholder="Username" value="" maxlength="10" pattern=".{6,}" required title="Minimum 6 characters required">
+        
+    </div>
+    <div class="form-group ">
+        <input name="refcode" type="text" class="form-control" placeholder="Referrer&#x20;Code (If referred)" value="">    
+    </div>
+    <input name="password" type="hidden" class="form-control" placeholder="Password" value="" required>
+    <input name="passwordVerify" type="hidden" class="form-control" placeholder="Password&#x20;Verify" value="" required>
+    <input name="email" type="hidden" class="form-control" placeholder="Email" value="demoemail@blfngoindia.com">
+    <div class="form-group ">
+        <button type="submit" name="submit" class="btn&#x20;btn-sm&#x20;btn-primary&#x20;btn-block" value="">Register</button>
+    </div>
+    <?php foreach ($form as $element) :
+        if ($this->formElementErrors($element)) : 
+            echo $this->formElementErrors()
+                ->setMessageOpenFormat('<p class="text-danger text-center">')
+                ->setMessageSeparatorString('</p><p class="text-danger text-center">')
+                ->setMessageCloseString('</p>')
+                ->render($element);
+        endif;
+        endforeach;
+    ?>
+    <p class="text-center">
+        <small>We will send Username & Password in your Registered Phone number.</small>
+    </p>
+    <div class="form-group">
+    <div class="col-xs-12 text-center">
+        <small><u>Do you have an account?</u></small> <a href="/user/login" id="link-register" class="btn btn-success btn-xs">Login</a>
+    </div>
+    </div>
+    
+<?php
+    if ($this->redirect): ?>
+        <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
+    <?php endif ?>
+
+<?php echo $this->form()->closeTag() ?>
+</div>
+</div>
+<script>
+$(function(){
+    var txt = $("input[name='username']");
+    var func = function(e) {
+        if(e.keyCode === 32){
+            txt.val(txt.val().replace(/\s/g, ''));
+        }
+    }
+    txt.keyup(func).blur(func);
+    txt.keydown(func).blur(func);
+    var newps = randomPassword(8);
+    $('input[name="password"]').val(newps);
+    $('input[name="passwordVerify"]').val(newps);
+});
+
+function randomPassword(length) {
+    var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP1234567890";
+    var pass = "";
+    for (var x = 0; x < length; x++) {
+        var i = Math.floor(Math.random() * chars.length);
+        pass += chars.charAt(i);
+    }
+    return pass;
+}
+
+</script>
+    </body>
+</html>

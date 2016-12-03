@@ -1,0 +1,49 @@
+<div class="content-header">
+    <div class="header-section">
+        <h1>
+            <?= $pageTitle ?><br>
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+        <p class="text-center"><a href="/admin/exam/add-class" class="btn btn-info btn-xs">Add Class</a></p>
+        <table class="table table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Details</th>
+                    <th>Questions</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        <?php 
+            foreach ($allcls AS $key => $cls){ ?>
+                <tr>
+                    <td><?= $cls['clsid'] ?></td>
+                    <td><?= $cls['clsname'] ?></td>
+                    <td><?= $cls['clsdetail'] ?></td>
+                    <td><a href="/admin/exam/listClassQuestions?clsid=<?= $cls['clsid']; ?>"><strong><?= $cls['qstns'] ?></strong></a></td>
+                    <td>
+                        <a href="/admin/exam/edit-class?clsid=<?= $cls['clsid']; ?>" data-toggle="tooltip" title="Edit">
+                            <i class="fa fa-pencil-square fa-2x"></i>
+                        </a> 
+                        <a href="/admin/exam/delete-class?theid=<?= $cls['clsid']; ?>" data-toggle="tooltip" title="Delete" class="text-danger" onclick="return confirm('Are you sure you want to Delete this Record?');">
+                            <i class="fa fa-trash-o fa-2x"></i>
+                        </a>
+                    </td>
+                </tr>
+        <?php } ?>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+</script>

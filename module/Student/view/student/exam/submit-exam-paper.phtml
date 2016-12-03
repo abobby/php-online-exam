@@ -1,0 +1,18 @@
+<br>
+<?php if(!empty($appmsg)) { ?>
+<div class="alert alert-warning"><?= $appmsg ?></div>  
+<?php } ?>
+
+<?php 
+if($dispscore == 1){
+    echo "Your Score is : $exmscore / $totexmqstn";
+} else {
+?>
+
+<div class="text-center">
+    <h2>Thanks for completing your Exam.</h2>
+    <h2>The result will be published on <strong>24th April 2016</strong> at </h2>
+    <h3><a href="http://www.blfngoindia.com/" target="_blank"><strong>Bright Life Foundation Website</strong> (www.blfngoindia.com)</a>.</h3>
+</div>
+
+<?php } ?>

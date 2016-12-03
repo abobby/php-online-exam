@@ -1,0 +1,50 @@
+<div class="content-header">
+    <div class="header-section">
+        <h1>
+            <?= $pageTitle ?><br>
+        </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+        <table class="table table-striped table-responsive" id="allstuds">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Phone</th>
+                    <th>Father's Name</th>
+                    <th>Class</th>
+                    <th>Year</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+        <?php 
+            foreach ($allstud AS $key => $stud){ ?>
+                <tr>
+                    <td><?= $stud['id'] ?></td>
+                    <td><?= $stud['name']." ".$stud['mname']." ".$stud['lname'] ?></td>
+                    <td><?= $stud['username'] ?></td>
+                    <td><?= $stud['phone'] ?></td>
+                    <td><?= $stud['fathername'] ?></td>
+                    <td><?= $stud['class'] ?></td>
+                    <td><?= $stud['passyear'] ?></td>
+                    <td><a href="/admin/student/edit-student-profile?stdid=<?= $stud['id'] ?>" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil-square-o"></i></a></td>
+                </tr>
+        <?php } ?>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $("#allstuds").DataTable({
+            "lengthMenu": [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"] ],
+        });
+    })
+</script>

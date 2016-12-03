@@ -1,0 +1,58 @@
+<div class="content-header">
+    <div class="header-section">
+        <h1>
+            <?= $pageTitle ?><br>
+        </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+        <table class="table table-striped table-responsive" id="allstpass">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Phone</th>
+                    <th>Password</th>
+                </tr>
+            </thead>
+            <tbody>
+        <?php 
+            foreach ($allrecs AS $key => $recs){ ?>
+                
+                <tr>
+                    <td><?= $recs->getId() ?></td>
+                    <td><?= $recs->getUsername() ?></td>
+                    <td><?= $recs->getPhonenum() ?></td>
+                    <td><?= $recs->getUserpass() ?></td>
+                </tr>
+        <?php } ?>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function(){
+   $(".makepay").on('click', function(){
+       var stdid = $(this).attr('id');
+       if(confirm("Are you sure to mark this Student UnPaid")){
+           $.ajax({
+            type: "POST",
+            url: '/admin/student/student-mark-unpaid?stdid='+stdid,
+            success: function(){
+                alert("Payment status updated. Please wait while records are being fetched.");
+                location.reload();
+            },
+          });
+       };
+   })
+   $("#allstpass").DataTable({
+        "lengthMenu": [ [5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"] ],
+    });
+});
+
+
+</script>

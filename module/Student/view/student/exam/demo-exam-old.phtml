@@ -1,0 +1,208 @@
+<h3><?= $pageTitle ?></h3>
+<p class="text-center">
+    <span class="alert alert-danger">Remaining Time : <?= $timetostop . "Mins" ?> <span id="countdown_exm"></span></span>
+</p>
+<br>
+<form method="post" action="/stexam/submit-demo-paper">
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <button class="btn btn-danger btn-xs pull-right" class="pprsubmit">Submit Paper</button>
+                <h3 class="panel-title"><span class="label label-primary">Question : <span class="qnos">1</span> / 5</span></h3>
+            </div>
+            <div id="qstn1" class="exqsppr show">
+            <div class="panel-body">
+                <table class="table table-bordered table-responsive">
+                    <thead>
+                    <tr>
+                    <th colspan="2">
+                        <h5>Question</h5>
+                        <p>Who is current Prime Minister of India?</p>
+                    </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="radio" name="qans_1" value="a"> APJ Abdul Kalam</td>
+                            <td><input type="radio" name="qans_1" value="b"> Narender Modi</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="qans_1" value="c"> Sonia Gandhi</td>
+                            <td><input type="radio" name="qans_1" value="d"> Atal Bihari Vajpai</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <a class="btn btn-success pull-right qstnnxt" id="qstn_1">Next</a>
+                <div class="clearfix"></div>
+            </div>
+            </div>
+            <div id="qstn2" class="exqsppr">
+            <div class="panel-body">
+                <table class="table table-bordered table-responsive">
+                    <thead>
+                    <tr>
+                    <th colspan="2">
+                        <h5>Question</h5>
+                        <p>A gas can be best liquefied by </p>
+                    </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="radio" name="qans_2" value="a"> lowering the temperature</td>
+                            <td><input type="radio" name="qans_2" value="b"> increasing the temperature</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="qans_2" value="c"> increasing the pressure</td>
+                            <td><input type="radio" name="qans_2" value="d"> increasing the pressure and lowering the temperature</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <a class="btn btn-success pull-right qstnnxt" id="qstn_2">Next</a>
+                <a class="btn btn-info pull-left qstnprev" id="pqstn_2">Previous</a>
+                <div class="clearfix"></div>
+            </div>
+            </div>
+            <div id="qstn3" class="exqsppr">
+            <div class="panel-body">
+                <table class="table table-bordered table-responsive">
+                    <thead>
+                    <tr>
+                    <th colspan="2">
+                        <h5>Question</h5>
+                        <p>Do you like………new PE teacher? - Yeah, she's cool!</p>
+                    </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="radio" name="qans_3" value="a"> ..... </td>
+                            <td><input type="radio" name="qans_3" value="b"> a</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="qans_3" value="c"> an</td>
+                            <td><input type="radio" name="qans_3" value="d"> the</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <a class="btn btn-success pull-right qstnnxt" id="qstn_3">Next</a>
+                <a class="btn btn-info pull-left qstnprev" id="pqstn_3">Previous</a>
+                <div class="clearfix"></div>
+            </div>
+            </div>
+            <div id="qstn4" class="exqsppr">
+            <div class="panel-body">
+                <table class="table table-bordered table-responsive">
+                    <thead>
+                    <tr>
+                    <th colspan="2">
+                        <h5>Question</h5>
+                        <p>How many satellites does Venus have?</p>
+                    </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="radio" name="qans_4" value="a"> 12</td>
+                            <td><input type="radio" name="qans_4" value="b"> 16</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="qans_4" value="c"> Zero</td>
+                            <td><input type="radio" name="qans_4" value="d"> 2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <a class="btn btn-success pull-right qstnnxt" id="qstn_4">Next</a>
+                <a class="btn btn-info pull-left qstnprev" id="pqstn_4">Previous</a>
+                <div class="clearfix"></div>
+            </div>
+            </div>
+            <div id="qstn5" class="exqsppr">
+            <div class="panel-body">
+                <table class="table table-bordered table-responsive">
+                    <thead>
+                    <tr>
+                    <th colspan="2">
+                        <h5>Question</h5>
+                        <p>Theory of ‘Continuity of Germplasm’ was given by–</p>
+                    </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="radio" name="qans_5" value="a"> Weismann</td>
+                            <td><input type="radio" name="qans_5" value="b"> Darwin</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="qans_5" value="c"> Lamarck</td>
+                            <td><input type="radio" name="qans_5" value="d"> Hugo de Vries</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-danger pull-right" class="pprsubmit">Submit Paper</button>
+                <a class="btn btn-info pull-left qstnprev" id="pqstn_5">Previous</a>
+                <div class="clearfix"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+<script>
+$(function(){
+    $('.exqsppr').hide();
+    nxtqustn();
+    prvqustn();
+    var timeleft = <?= $timetostop ?> * 60 * 1000;
+    //alert(timeleft);
+    $('#countdown_exmx').countdown({until: +600, padZeroes: true});
+});
+
+function nxtqustn(){
+    $('.qstnnxt').on('click', function(){
+    var curq = $(this).attr('id');
+    curq = curq.split('_');
+    var nxtqid = curq[1];
+    nxtqid++;
+    var curqid = "#qstn"+curq[1];
+    var nxtq = "#qstn"+nxtqid;
+    $('.exqsppr').hide();
+    var qnumb = $('.qnos').text();
+    qnumb++;
+    $('.qnos').text(qnumb);
+    $(curqid).removeClass('show');
+    $(nxtq).addClass('show');
+    });
+}
+function prvqustn(){
+    $('.qstnprev').on('click', function(){
+    var curq = $(this).attr('id');
+    curq = curq.split('_');
+    var nxtqid = curq[1];
+    nxtqid--;
+    var curqid = "#qstn"+curq[1];
+    var nxtq = "#qstn"+nxtqid;
+    $('.exqsppr').hide();
+    var qnumb = $('.qnos').text();
+    qnumb--;
+    $('.qnos').text(qnumb);
+    $(curqid).removeClass('show');
+    $(nxtq).addClass('show');
+    });
+}
+
+setTimeout(function(){ 
+    $(form).submit();
+}, 3000);
+</script>

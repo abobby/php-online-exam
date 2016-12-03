@@ -1,0 +1,56 @@
+<div class="content-header">
+    <div class="header-section">
+    	<div class="pull-right">My Referral Code : <span class="bg-primary"><strong>&nbsp;&nbsp;<?= $studinfo->strefcode; ?>&nbsp;&nbsp;</strong></span></div>
+        <h1>
+            <strong><?= $pageTitle ?></strong> 
+        </h1>
+    </div>
+</div>
+
+<div class="row" data-ng-app>
+    <div class="col-lg-12">
+        <div class="block">
+            <div class="block-title">
+            	<div class="pull-right"><a href="/streferral/referral-dashboard" class="btn btn-xs btn-warning">Referral Dashboard</a>
+            	&nbsp;&nbsp;&nbsp;
+            	<a href="/streferral/referral-sms-form" class="pull-right btn btn-xs btn-info">Refer by SMS</a></div>
+                <h2><i class="fa fa-file-o"></i> Referral Email Form<h2>
+            </div>
+            <div class="block-body">
+                <?php $keepon = 1; if($keepon == 1) {
+                    echo "<h1>Comming Soon</h1>";
+                } else {
+
+            	<?php if(!empty($sucmsg)) { ?>
+            		<div class="alert alert-success text-center"><h4><?= $sucmsg; ?></h4></div>
+        		<?php } ?>
+            	<form class="form" action="#" method="post">
+
+            		<div class="form-group">
+            			<input type="text" name="rfrname" class="form-control" placeholder="Full Name" data-ng-model="name" required/>
+            		</div>
+            		<div class="form-group">
+            			<input type="email" name="rfremail" class="form-control" placeholder="Email" required/>
+            		</div>
+            		<div class="form-group">
+	            		<h4>Dear {{name}},</h4>
+	            		<p>
+	            			You have been referred by <strong><?= $studinfo->getFirstName()." ".$studinfo->getMiddleName." ".$studinfo->getLastName(); ?></strong> for eScholarship program organised by Blfngoindia.
+	            		</p>
+	            		<p>Please click the link below to register at <a href="http://www.blfngoindia.org">www.blfngoindia.org</a> Scholarship program. With referral code <strong><?= $studinfo->getStrefcode(); ?></strong>
+	            		</p>
+	            		<p>Regards,<br>
+	            		   Team eScholarship
+	            		</p>
+            		</div>
+            		<div class="form-group">
+            			<input type="submit" name="rfemsub" class="btn btn-primary" value="Send" />
+            		</div>
+
+
+            	</form>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+</div>

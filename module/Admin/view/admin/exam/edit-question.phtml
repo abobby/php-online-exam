@@ -1,0 +1,99 @@
+<div class="content-header">
+    <div class="header-section">
+        <h1>
+            <?= $pageTitle ?><br>
+        </h1>
+    </div>
+</div>
+<?php if($svqstnmsg != ''){ ?>
+<div class="alert alert-warning"><?= $svqstnmsg; ?></div>
+<?php } ?>
+<form action="#" method="post" name="creaexmppr">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class='pull-right'>Fields marked <span class="text-danger">*</span> are mandatory <button id="saveprofile" class="btn btn-success btn-xs">Save Changes</button></div>
+            <h3 class="panel-title"><?= $pageTitle ?></h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            qcls = <?= $qstncls ?>
+                            <label for="inputexcls">Select Class</label>
+                            <select class="form-control" name="inputexcls" required>
+                            <?php 
+                              foreach($excls as $key => $value){
+                                  echo "<option value='".$value->getId()."'";
+                                  if($value->getId() == $qstncls) { echo "selected";}
+                                  echo ">".$value->getName()."</option>";
+                              }
+                            ?>
+                            </select>
+                          </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                        <label for="inputexsubj">Select Subject</label>
+                        <select class="form-control" name="inputexsubj" required>
+                            <?php 
+                              foreach($exsub as $key => $subj){
+                                  echo "<option value='".$subj->getEid()."'";
+                                  if($subj->getEid() == $qstnsub) { echo " selected "; } 
+                                  echo ">".$subj->getName()."</option>";
+                              }
+                            ?>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                        <label for="inputexmode">Exam Mode</label>
+                        <select class="form-control" name="inputexmode" required>
+                            <option name="inputexmode" value="1" <?php if($exqstn->getExmode() == 1){ echo 'selected'; } ?>>English</option>
+                            <option name="inputexmode" value="2" <?php if($exqstn->getExmode() == 2){ echo 'selected'; } ?>>Hindi</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputexquest">Question</label>
+                      <textarea type="text" class="form-control" name="inputexquest" rows="10" required><?php if($exqstn->getExquest() != ''){ echo $exqstn->getExquest(); } else { echo ''; } ?></textarea>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputexopt1">Option 1</label>
+                      <textarea type="text" class="form-control" name="inputexopt1"  rows="2" required><?php if($exqstn->getExchoice1() != ''){ echo $exqstn->getExchoice1(); } else { echo ''; } ?></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputexopt2">Option 2</label>
+                      <textarea type="text" class="form-control" name="inputexopt2"  rows="2" required><?php if($exqstn->getExchoice2() != ''){ echo $exqstn->getExchoice2(); } else { echo ''; } ?></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputexopt3">Option 3</label>
+                      <textarea type="text" class="form-control" name="inputexopt3"  rows="2"><?php if($exqstn->getExchoice3() != ''){ echo $exqstn->getExchoice3(); } else { echo ''; } ?></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputexopt4">Option 4</label>
+                      <textarea type="text" class="form-control" name="inputexopt4"  rows="2"><?php if($exqstn->getExchoice4() != ''){ echo $exqstn->getExchoice4(); } else { echo ''; } ?></textarea>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputexquest">Correct Answer</label>
+                      <input type="radio" name="inputexans" value="1" <?php if($exqstn->getExcrchoice() == 1){ echo 'checked'; } ?>> 1
+                      <input type="radio" name="inputexans" value="2" <?php if($exqstn->getExcrchoice() == 2){ echo 'checked'; } ?>> 2
+                      <input type="radio" name="inputexans" value="3" <?php if($exqstn->getExcrchoice() == 3){ echo 'checked'; } ?>> 3
+                      <input type="radio" name="inputexans" value="4" <?php if($exqstn->getExcrchoice() == 4){ echo 'checked'; } ?>> 4
+                    </div>
+                </div>
+                <input type="hidden" name="qstnid" value="<?= $qstnid ?>" />
+            </div>
+            </div>
+        </div>
+        <div class="panel-footer text-center">
+            <button id="saveprofile" class="btn btn-success">Save Changes</button>
+        </div>
+    </div>
+</form>

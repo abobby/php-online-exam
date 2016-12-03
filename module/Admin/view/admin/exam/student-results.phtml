@@ -1,0 +1,102 @@
+<div class="content-header">
+    <div class="header-section">
+        <h1>
+            <?= $pageTitle ?><br>
+        </h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+
+        <form method="post" name="showresults" action="#">
+            <div class="row">
+            <div class="form-group col-md-6">
+                <select name="examcode" class="form-control">
+                    <option>-- Select Exam --</option>
+                    <?php foreach($allexams as $exams){ ?>
+                    <option value="<?= $exams->getId() ?>"><?= $exams->getName() ?></option>
+                    <?php } ?>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <button class="btn btn-info">Show Result</button>
+            </div>
+            </div>
+        </form>
+
+        <?php 
+        $slno = 1;
+        if(!empty($studentresult)){ 
+        //$slno++;
+        ?>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Sl. No</td>
+                    <td>Id</td>
+                    <td>User Id</td>
+                    <td>Name</td>
+                    <td>Total Questions</td>
+                    <td>Total Score</td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($studentresult as $key=>$result) { ?>
+                <tr>
+                    <td><?= $slno++ ?></td>
+                    <td><?= $result->id ?></td>
+                    <td><?= $result->userId->getId() ?></td>
+                    <td><?= $result->userId->getDisplayName() ?></td>
+                    <td>
+                        <?php 
+                            $totqstn = explode(',',$result->examQstnIds);
+                            echo count($totqstn);
+                        ?>
+                    </td>
+                    <!--<td> -->
+                        <?php 
+                        /*    $totanswers = explode(',',$result->examQstnStatus);
+                            $counts = array_count_values($totanswers);
+                            if(!empty($counts['NA'])){
+                                $notgiven = $counts['NA'];
+                            } else {
+                                $notgiven = 0;
+                            }
+                            $answered = count($totanswers) - $notgiven;
+                            echo $answered;*/
+                        ?>
+                    <!-- </td> -->
+                    <td>
+                        <?php 
+                            $totscranswers = explode(',',$result->examQstnStatus);
+                            $countscr = array_count_values($totscranswers);
+                            if(!empty($countscr['W'])){
+                                $wrnganswer = $countscr['W'];
+                            } else {
+                                $wrnganswer = 0;
+                            }
+
+                            if(!empty($countscr['NA'])){
+                                $naanswers = $countscr['NA'];
+                            } else {
+                                $naanswers = 0;
+                            }
+
+                            //var_dump($notgiven);
+                            $totcoranswer = count($totscranswers) - $naanswers - $wrnganswer;
+                            echo $totcoranswer;
+                        ?>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        <?php } else { ?>
+        <div class="col-md-12 text-center">
+            <h2>Select Exam from List above</h2>
+        </div>
+        <?php } ?>
+        </div>
+    </div>
+</div>
