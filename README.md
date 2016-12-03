@@ -11,9 +11,9 @@ PHP and MySQL based Online Examination Portal with User and Admin login.
   1. Registration
   2. Login
 
-#####Technologies Used
+###Technologies Used
 * **Framework** : Zend2
 * **ORM** : Doctrine 2
 * **Authentication** : Zfcuser
 
-#####Installation Instructions
+###Installation Instructions :bulb:
